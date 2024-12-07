@@ -29,11 +29,11 @@ gv = 0.17
 m_pi = 140 # MeV
 m_rho = 775 # MeV
 F = 92 # MeV
-epsilon = 50000  # Some "small" number (set to get reasonable width of peak)
+epsilon = 0 
 
 csecs_1 = []
 csecs_2 = []
-s_values = np.linspace(4*m_pi**2 + 1, 1.5e6, 1000)
+s_values = np.linspace(4*m_pi**2 + 1, 0.5e6, 1000)
 for s in s_values:
     csecs_1.append(csec(s, sqamp_1) * 1e-6 * 0.389)  # in mbarn
     csecs_2.append(csec(s, sqamp_2) * 1e-6 * 0.389)
@@ -44,6 +44,7 @@ ax1.set_xlabel("s [GeV$^2$]")
 ax1.set_ylabel("$\sigma$ [mbarn]")
 ax1.grid()
 fig1.suptitle(r"$\pi^+ \pi^+ \rightarrow \pi^+ \pi^+$ cross section")
+fig1.savefig("plot1.pdf")
 
 fig2, ax2 = plt.subplots()
 ax2.plot(s_values*1e-6, csecs_2)
@@ -51,4 +52,5 @@ ax2.set_xlabel("s [GeV$^2$]")
 ax2.set_ylabel("$\sigma$ [mbarn]")
 ax2.grid()
 fig2.suptitle(r"$\pi^+ \pi^- \rightarrow \pi^+ \pi^-$ cross section")
+fig2.savefig("plot2.pdf")
 plt.show()
