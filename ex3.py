@@ -23,7 +23,7 @@ def exact_volume(dim):
 # -------------- 3 dimensions --------------
 results_3d = []
 # sample_amounts = np.arange(1, 10001, 100)
-sample_amounts = np.power(10, np.arange(0,7,0.5))
+sample_amounts = np.power(10, np.arange(0,7.1,0.5))
 for n in sample_amounts:
     results_3d.append(mc_volume(3, int(n)))
 
@@ -40,7 +40,7 @@ ax_3d.set_ylabel("Relative error")
 # -------------- 4 dimensions --------------
 results_4d = []
 # sample_amounts = np.arange(1, 10001, 100)
-sample_amounts = np.power(10, np.arange(0,7,0.5))
+sample_amounts = np.power(10, np.arange(0,7.1,0.5))
 for n in sample_amounts:
     results_4d.append(mc_volume(4, int(n)))
 
