@@ -2,12 +2,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 import scipy.integrate as integrate
 
-def sqamp_1(t, s):  # pi+ pi+ -> pi+ pi+
+def sqamp_1(t, s):  # Square amplitude for pi+ pi+ -> pi+ pi+ (with the additional factor 1/2 due to indistinguishable final state)
     u = 4*m_pi**2 - s - t
-    return np.abs(gv**2 / (4 * F**4) * ( t**2 * (s-u) / (t - m_rho**2) + u**2 * (s-t) / (u - m_rho**2) ))**2
+    return 1/2 * np.abs(gv**2 / (4 * F**4) * ( t**2 * (s-u) / (t - m_rho**2) + u**2 * (s-t) / (u - m_rho**2) ))**2
 
 
-def sqamp_2(t, s):  # pi+ pi- -> pi+ pi-
+def sqamp_2(t, s):  # Square amplitude for pi+ pi- -> pi+ pi-
     u = 4*m_pi**2 - s - t
     return np.abs(gv**2 / (4 * F**4) * ( s**2 * (t-u) / (s - m_rho**2 + 1j*epsilon) + t**2 * (s-u) / (t - m_rho**2) ))**2
 
@@ -42,6 +42,7 @@ fig1, ax1 = plt.subplots()
 ax1.plot(s_values*1e-6, csecs_1)
 ax1.set_xlabel("s [GeV$^2$]")
 ax1.set_ylabel("$\sigma$ [mbarn]")
+ax1.set_yscale('log')
 ax1.grid()
 fig1.suptitle(r"$\pi^+ \pi^+ \rightarrow \pi^+ \pi^+$ cross section")
 fig1.savefig("plot1.pdf")
@@ -50,6 +51,7 @@ fig2, ax2 = plt.subplots()
 ax2.plot(s_values*1e-6, csecs_2)
 ax2.set_xlabel("s [GeV$^2$]")
 ax2.set_ylabel("$\sigma$ [mbarn]")
+ax2.set_yscale('log')
 ax2.grid()
 fig2.suptitle(r"$\pi^+ \pi^- \rightarrow \pi^+ \pi^-$ cross section")
 fig2.savefig("plot2.pdf")
