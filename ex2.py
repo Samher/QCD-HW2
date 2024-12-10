@@ -35,8 +35,8 @@ csecs_1 = []
 csecs_2 = []
 s_values = np.linspace(4*m_pi**2 + 1, 0.5e6, 1000)
 for s in s_values:
-    csecs_1.append(csec(s, sqamp_1) * 1e-6 * 0.389)  # in mbarn
-    csecs_2.append(csec(s, sqamp_2) * 1e-6 * 0.389)
+    csecs_1.append(csec(s, sqamp_1) * 1e+6 * 0.389)  # in mbarn
+    csecs_2.append(csec(s, sqamp_2) * 1e+6 * 0.389)
 
 fig1, ax1 = plt.subplots()
 ax1.plot(s_values*1e-6, csecs_1)
